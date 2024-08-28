@@ -48,6 +48,7 @@ then
 else
     echo -e "Password reset is not set .$Y Setting $N now"
     mysql_secure_installation --set-root-pass ExpenseApp@1
+    VALIDATE $? "Setting up Password"
 fi
-VALIDATE $? "Setting up Password"
+
     
