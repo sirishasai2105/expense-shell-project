@@ -32,3 +32,20 @@ VALIDATE()
 }
 dnf install mysql-server -y &>>$LOG_FILE
 VALIDATE $? "Installing Mysql server"
+
+systemctl enable mysqld
+VALIDATE $? "Enabling Mysql server"
+
+systemctl start mysqld
+VALIDATE $? "Starting Mysql server"
+
+mysql -h ipaddress -u root -pExpenseApp@1 -e 'show databases;' &>>LOG_FILE
+if [ $? -eq 0 ]
+then
+    echo -e "Password is already set ... $Y SKIPPING $N"
+else
+    echo -e "Password reset is not set .$Y Setting $N now"
+    mysql_secure_installation --set-root-pass ExpenseApp@1
+fi
+VALIDATE $? "Setting up Password"
+    
