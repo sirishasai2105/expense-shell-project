@@ -41,13 +41,14 @@ VALIDATE $? "Enabling Mysql server"
 systemctl start mysqld
 VALIDATE $? "Starting Mysql server"
 
-mysql -h daws81s-mysql.reyanshsai.online -u root -pExpenseApp@1 -e 'show databases;' &>>LOG_FILE
+mysql -h daws81s-mysql.reyanshsai.online -u root -pExpenseApp@1 -e 'show databases;'&>>LOG_FILE
 if [ $? -ne 0 ]
 then
-    echo -e "Password reset is not set .$Y Setting $N now"
-    mysql_secure_installation --set-root-pass ExpenseApp@1
+    echo -e "Password reset is not set .$Y Setting $N now"&>>LOG_FILE
+    mysql_secure_installation --set-root-pass ExpenseApp@1&>>LOG_FILE
     VALIDATE $? "Setting up Password"
-    #echo -e "Password is already set ... $Y SKIPPING $N"
+else
+    echo -e "Password is already set ... $Y SKIPPING $N"
 fi
 
     
