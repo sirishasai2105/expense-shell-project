@@ -1,3 +1,4 @@
+#!/bin/bash
 LOG_FOLDER=/var/log/expense
 mkdir -p $LOG_FOLDER
 SCRIPT_NAME=$(echo "$0" | cut -d "." -f1)
