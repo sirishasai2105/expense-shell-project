@@ -30,6 +30,8 @@ VALIDATE()
         exit 1
     fi
 }
+CHECK_ROOT
+
 dnf install mysql-server -y &>>$LOG_FILE
 VALIDATE $? "Installing Mysql server"
 
