@@ -30,18 +30,5 @@ VALIDATE()
         exit 1
     fi
 }
-
-
-# VALIDATE()
-# {
-#     if [ $1 -eq 0 ]
-#     then 
-#         echo -e "$2 installation is $G SUCCEEDED $N"
-#     else
-#          echo -e "$2 installation is $R FAILED $N"
-#          exit 1
-#     fi
-# }
-
-dnf install mysql-server -y&>>$LOG_FILE
+dnf install mysql-server -y &>>$LOG_FILE
 VALIDATE $? "Installing Mysql server"
