@@ -33,19 +33,19 @@ VALIDATE()
 }
 CHECK_ROOT
 
-dnf module disable nodejs -y
-VALIDATE $? "Disabling Nodejs "
+dnf module disable nodejs -y&>>LOG_FILE
+VALIDATE $? "Disabling Nodejs "&>>LOG_FILE
 
-dnf module enable nodejs:20 -y
-VALIDATE $? "Enabling Nodejs"
+dnf module enable nodejs:20 -y&>>LOG_FILE
+VALIDATE $? "Enabling Nodejs"&>>LOG_FILE
 
-dnf install nodejs -y
-VALIDATE $? "Installing Nodejs "
+dnf install nodejs -y&>>LOG_FILE
+VALIDATE $? "Installing Nodejs "&>>LOG_FILE
 
-useradd expense
-VALIDATE $? "Adding Expense User"
+useradd expense&>>LOG_FILE
+VALIDATE $? "Adding Expense User"&>>LOG_FILE
 
-mkdir -p /app
-VALIDATE $? "Making the directory"
+mkdir -p /app&>>LOG_FILE
+VALIDATE $? "Making the directory"&>>LOG_FILE
 
 
