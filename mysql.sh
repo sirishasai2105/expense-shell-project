@@ -1,5 +1,5 @@
 LOG_FOLDER=/var/log/expense
-mkdir -p LOG_FOLDER
+mkdir -p $LOG_FOLDER
 SCRIPT_NAME=$(echo "$0" | cut -d "." -f1)
 TIME_STAMP=$(date +%Y-%m-%d-%H-%M-%S)
 
