@@ -41,7 +41,7 @@ VALIDATE $? "Enabling Mysql server"
 systemctl start mysqld
 VALIDATE $? "Starting Mysql server"
 
-mysql -h ipaddress -u root -pExpenseApp@1 -e 'show databases;' &>>LOG_FILE
+mysql -h daws81s-mysql.reyanshsai.online -u root -pExpenseApp@1 -e 'show databases;' &>>LOG_FILE
 if [ $? -eq 0 ]
 then
     echo -e "Password is already set ... $Y SKIPPING $N"
