@@ -85,7 +85,7 @@ dnf install mysql -y&>>$LOG_FILE
 VALIDATE $? "Installing Mysql service"
 
 
-mysql -h <daws81s-mysql.reyanshsai.online> -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h daws81s-mysql.reyanshsai.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
 systemctl restart backend>>$LOG_FILE
 VALIDATE $? "Restaring the backend"
