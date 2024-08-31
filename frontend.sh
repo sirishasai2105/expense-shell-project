@@ -58,4 +58,3 @@ VALIDATE $? "Extracting the front end zipped content"
 cp /home/ec2-user/expense-shell-project/expense.conf /etc/nginx/default.d/expense.conf
 VALIDATE $? "creating conf file "
 
-systemctl restart nginx
