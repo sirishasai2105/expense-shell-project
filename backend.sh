@@ -69,7 +69,8 @@ mkdir -p /app &>>LOG_FILE
 VALIDATE $? "Making the directory"| tee -a $LOG_FILE
 
 npm install&>>LOG_FILE 
-cp /home/ec2-user/expense-shell-project/backend.service/etc/systemd/system/backend.service
+cp /home/ec2-user/expense-shell-project/backend.service /etc/systemd/system/backend.service
+
 
 systemctl daemon-reload&>>$LOG_FILE
 VALIDATE $? "Reloading the application"
@@ -86,7 +87,7 @@ VALIDATE $? "Installing Mysql service"
 
 mysql -h <daws81s-mysql.reyanshsai.online> -uroot -pExpenseApp@1 < /app/schema/backend.sql
 
-systemctl restart backend
+systemctl restart backend>>$LOG_FILE
 VALIDATE $? "Restaring the backend"
 
 
