@@ -68,6 +68,7 @@ VALIDATE $? "Extracting backend application code"
 mkdir -p /app &>>LOG_FILE
 VALIDATE $? "Making the directory"| tee -a $LOG_FILE
 
+npm install&>>LOG_FILE 
 cp /home/ec2-user/expense-shell-project/backend.service/etc/systemd/system/backend.service
 
 systemctl daemon-reload&>>$LOG_FILE
