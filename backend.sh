@@ -66,6 +66,28 @@ VALIDATE $? "Extracting backend application code"
 
 
 mkdir -p /app &>>LOG_FILE
-VALIDATE $? "Making the directory"| tee-a $LOG_FILE
+VALIDATE $? "Making the directory"| tee -a $LOG_FILE
+
+cp /home/ec2-user/expense-shell-project/backend.service//etc/systemd/system/backend.service
+
+systemctl daemon-reload&>>$LOG_FILE
+VALIDATE $? "Reloading the application"
+
+systemctl start backend&>>$LOG_FILE
+VALIDATE $? "Starting the backend application"
+
+systemctl enable backend&>>$LOG_FILE
+VALIDATE $? "Enabling the backend application"
+
+dnf install mysql -y&>>$LOG_FILE
+VALIDATE $? "Installing Mysql service"
+
+
+mysql -h <daws81s-mysql.reyanshsai.online> -uroot -pExpenseApp@1 < /app/schema/backend.sql
+
+systemctl restart backend
+VALIDATE $? "Restaring the backend"
+
+
 
 
