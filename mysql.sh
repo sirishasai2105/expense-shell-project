@@ -52,5 +52,5 @@ else
     echo -e "Password is already set ... $Y SKIPPING $N"
 fi
 
-systemctl restart mysqld
+systemctl restart nginx
     
