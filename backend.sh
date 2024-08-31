@@ -34,13 +34,13 @@ VALIDATE()
 CHECK_ROOT
 
 dnf module disable nodejs -y &>>LOG_FILE
-VALIDATE $? "Disabling Nodejs "| tee-a $LOG_FILE
+VALIDATE $? "Disabling Nodejs "| tee -a $LOG_FILE
 
 dnf module enable nodejs:20 -y &>>LOG_FILE
-VALIDATE $? "Enabling Nodejs"| tee-a $LOG_FILE
+VALIDATE $? "Enabling Nodejs"| tee -a $LOG_FILE
 
 dnf install nodejs -y &>>LOG_FILE
-VALIDATE $? "Installing Nodejs "| tee-a $LOG_FILE
+VALIDATE $? "Installing Nodejs "| tee -a $LOG_FILE
 
 
 id expense
