@@ -53,5 +53,12 @@ fi
 mkdir -p /app &>>LOG_FILE
 VALIDATE $? "Making the directory"| tee -a $LOG_FILE
 
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE
+VALIDATE $? "Downloading backend application code"
 
+
+cd /app
+
+unzip /tmp/backend.zip&>>$LOG_FILE
+VALIDATE $? "zipping the file"
 
