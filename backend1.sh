@@ -55,12 +55,10 @@ VALIDATE $? "Making the directory"| tee -a $LOG_FILE
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE
 VALIDATE $? "Downloading backend application code"
-
-
 cd /app
-
-unzip /tmp/backend.zip&>>$LOG_FILE
-VALIDATE $? "zipping the file"
+rm -rf /app/* # remove the existing code
+unzip /tmp/backend.zip &>>$LOG_FILE
+VALIDATE $? "Extracting backend application code"
 
 #npm install
 #cp /etc/systemd/system/backend.service
