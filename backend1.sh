@@ -62,3 +62,6 @@ cd /app
 unzip /tmp/backend.zip&>>$LOG_FILE
 VALIDATE $? "zipping the file"
 
+#npm install
+#cp /etc/systemd/system/backend.service
+
