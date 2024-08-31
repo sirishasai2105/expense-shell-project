@@ -55,5 +55,5 @@ cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 VALIDATE $? "Extracting the front end zipped content"
 
-cp /home/ec2-user/expense-shell-project/etc/nginx/default.d/expense.conf
+cp /home/ec2-user/expense-shell-project/expense.conf /etc/nginx/default.d/expense.conf
 VALIDATE $? "creating conf file "
